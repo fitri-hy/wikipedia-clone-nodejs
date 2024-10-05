@@ -122,7 +122,7 @@ Jika terjadi kesalahan, API akan merespons dengan objek JSON yang berisi pesan k
 **Catatan**
 
 - Pastikan untuk melakukan URL-encode pada judul artikel dalam permintaan untuk menghindari masalah dengan spasi dan karakter khusus.
-- Pagination diterapkan pada endpoint `/articles` dan `/search`, pastikan untuk memeriksa bidang hasMore untuk menentukan apakah data lebih lanjut tersedia.
+- Pagination diterapkan pada endpoint `api/articles` dan `api/search`, pastikan untuk memeriksa bidang hasMore untuk menentukan apakah data lebih lanjut tersedia.
  
 ## Instalasi
 
