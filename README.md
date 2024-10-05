@@ -9,7 +9,7 @@ http://localhost:3000.com/
 
 ## Endpoint
 
-### Mengambil Artikel Terbaru**
+### Mengambil Artikel Terbaru
 
 - Endpoint: `api/articles`
 - Metode: `GET`
