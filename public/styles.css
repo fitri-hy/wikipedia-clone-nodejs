@@ -99,15 +99,15 @@ td {
 th {
     background-color: #f3f4f6 !important;
     font-weight: 600 !important;
-    color: #374151; /* Darker text for contrast */
+    color: #374151;
 }
 
 tr:nth-child(even) {
-    background-color: #f9fafb; /* Light gray for even rows */
+    background-color: #f9fafb;
 }
 
 tr:hover {
-    background-color: #e5e7eb; /* Highlight row on hover */
+    background-color: #e5e7eb;
 }
 
 @media (max-width: 640px) {
