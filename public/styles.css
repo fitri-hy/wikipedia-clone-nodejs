@@ -82,17 +82,17 @@ a:hover {
 }
 
 table {
-    width: auto !important;
+    width: 100% !important;
     border-collapse: collapse !important;
-	margin: 1rem auto !important;
-    overflow-x: auto !important;
+    margin: 1rem 0 !important;
     display: block !important;
+    overflow-x: auto !important;
 }
 
 th,
 td {
     border: 1px solid #e5e7eb !important;
-    padding: 0.75rem 1rem !important; /* More padding for better spacing */
+    padding: 0.75rem 1rem !important;
     text-align: left !important;
 }
 
@@ -121,9 +121,10 @@ tr:hover {
 
     table {
         display: block !important;
+        width: 100% !important;
         overflow-x: auto !important;
         white-space: nowrap !important;
-		margin: 1rem auto !important;
+        margin: 1rem auto !important;
     }
 
     th,
