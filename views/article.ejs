@@ -30,15 +30,28 @@
 		</form>
 	</header>
 
-	<section class="p-4 container m-auto">
+	<section id="article-content" class="p-4 container m-auto">
 		<%- article %>
     </section>
-	
+	<button onclick="textToSpeech()" class="fixed z-50 bottom-2 right-2 bg-pink-500 rounded-full p-1 shadow-lg">
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-white">
+		  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+		</svg>
+	</button>
+
 	<footer class="w-full flex justify-center p-4">
             <span class="text-center text-gray-500">© 2024 Wikipedia | Dibuat dengan ❤️</span>
 	</footer>
 
     <script>
+		function textToSpeech() {
+            const speech = new SpeechSynthesisUtterance();
+            speech.lang = 'id-ID';
+            speech.text = document.getElementById('article-content').innerText;
+            speech.rate = 1;
+            window.speechSynthesis.speak(speech);
+        }
+
         function replaceText(node) {
             if (node.nodeType === Node.ELEMENT_NODE) {
                 node.childNodes.forEach(replaceText);
