@@ -45,17 +45,26 @@
 	
         <main>
             <% if (articles && articles.length) { %>
-                <ul class="space-y-4">
+                <div class="flex flex-col w-full space-y-4">
 					<% articles.forEach(article => { %>
-						<li class="p-4 bg-white border border-gray-200 rounded-lg transition duration-200 hover:shadow-lg">
-							<h2 class="text-2xl font-semibold mb-2">
-								<a href="/wiki/<%= encodeURIComponent(article.title) %>" class="text-blue-500 hover:underline"><%= article.title %></a>
-							</h2>
-							<p class="text-gray-600">Diperbarui oleh <strong><%= article.user %></strong> pada <%= new Date(article.timestamp).toLocaleString() %></p>
-							<p class="text-gray-500"><%- article.snippet %></p>
-						</li>
+						<a href="/wiki/<%= encodeURIComponent(article.title) %>" class="w-full flex">
+							<div class="flex flex-col w-full p-4 bg-white border border-gray-200 rounded-lg transition duration-200 hover:shadow-lg">
+								<h2 class="text-2xl text-blue-500 font-semibold mb-2">
+									<%= article.title %>
+								</h2>
+								<div class="flex w-full gap-3">
+									<div class="flex flex-col w-full">
+										<p class="text-gray-600">Diperbarui oleh <strong><%= article.user %></strong> pada <%= new Date(article.timestamp).toLocaleString() %></p>
+										<p class="text-gray-500"><%- article.snippet %></p>
+									</div>
+									<% if (article.imageUrl) { %>
+										<img class="hidden md:flex h-20 w-20 rounded object-cover" src="<%= article.imageUrl %>" alt="<%= article.title %>">
+									<% } %>
+								</div>
+							</div>
+						</a>
 					<% }); %>
-                </ul>
+                </div>
 
                 <div class="flex gap-2 justify-center mt-6">
                     <% if (page > 1) { %>

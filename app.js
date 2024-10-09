@@ -43,22 +43,24 @@ app.get('/', async (req, res) => {
                         action: 'query',
                         format: 'json',
                         titles: title,
-                        prop: 'extracts',
+                        prop: 'extracts|pageimages',
                         exintro: true,
                         explaintext: true,
-                        redirects: 1
+                        redirects: 1,
+                        pithumbsize: 200
                     }
                 });
 
                 const page = Object.values(summaryResponse.data.query.pages)[0];
                 let snippet = page.extract || 'Tidak ada deskripsi';
+                let imageUrl = page.thumbnail ? page.thumbnail.source : null;
 
                 if (snippet.length > 150) {
                     snippet = snippet.substring(0, 150).trim();
                     snippet += '...';
                 }
 
-                return { ...article, snippet };
+                return { ...article, snippet, imageUrl };
             })
         );
 
@@ -101,19 +103,21 @@ app.get('/search', async (req, res) => {
                         prop: 'extracts',
                         exintro: true,
                         explaintext: true,
-                        redirects: 1
+                        redirects: 1,
+                        pithumbsize: 200
                     }
                 });
 
                 const page = Object.values(summaryResponse.data.query.pages)[0];
                 let snippet = page.extract || 'Tidak ada deskripsi';
+                let imageUrl = page.thumbnail ? page.thumbnail.source : null;
 
                 if (snippet.length > 150) {
                     snippet = snippet.substring(0, 150).trim();
                     snippet += '...';
                 }
 
-                return { ...article, snippet };
+                return { ...article, snippet, imageUrl };
             })
         );
 
